@@ -1,0 +1,50 @@
+{% block content %}
+{% include "header.html" %}
+
+<header class="masthead" style="background-image: url('../static/assets/img/edit-bg.jpg')">
+  <div class="container position-relative px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-7">
+        <div class="page-heading">
+          <h1>{{ "Edit Post" if is_edit else "New Post" }}</h1>
+          <span class="subheading">You're going to make a great blog post!</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="mb-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <form method="POST">
+          <div class="mb-3">
+            <label>Title</label>
+            <input type="text" name="title" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label>Subtitle</label>
+            <input type="text" name="subtitle" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label>Author</label>
+            <input type="text" name="author" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label>Image URL</label>
+            <input type="url" name="img_url" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label>Body</label>
+            <textarea name="body" class="form-control" rows="10" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit Post</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
+
+{% include "footer.html" %}
+{% endblock %}
